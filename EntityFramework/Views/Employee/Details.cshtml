@@ -1,0 +1,49 @@
+﻿@model EntityFramework.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<div class="container mt-4">
+
+    <h2>Employee Details</h2>
+
+    <hr />
+
+    <table class="table table-bordered">
+
+        <tr>
+            <th>Employee ID</th>
+            <td>@Model.EmployeeId</td>
+        </tr>
+
+        <tr>
+            <th>Name</th>
+            <td>@Model.Name</td>
+        </tr>
+
+        <tr>
+            <th>Gender</th>
+            <td>@Model.Gender</td>
+        </tr>
+
+        <tr>
+            <th>City</th>
+            <td>@Model.City</td>
+        </tr>
+
+        <tr>
+            <th>Department</th>
+            <td>@Model.Department?.DepartmentName</td>
+        </tr>
+
+    </table>
+
+    <a asp-controller="Department"
+       asp-action="Employees"
+       asp-route-id="@Model.DepartmentId"
+       class="btn btn-secondary">
+        Back to Employee List
+    </a>
+
+</div>

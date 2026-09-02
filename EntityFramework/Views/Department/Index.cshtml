@@ -1,0 +1,22 @@
+﻿@model IEnumerable<EntityFramework.Models.Department>
+
+@{
+    ViewData["Title"] = "Department List";
+}
+
+<div class="container">
+    <h2>Department List</h2>
+    <hr />
+
+    @foreach(var department in Model)
+    {
+        <div class="mb-3">
+            <a asp-controller="Department"
+               asp-action="Employees"
+               asp-route-id="@department.DepartmentId"
+               class="btn btn-link">
+                @department.DepartmentName
+            </a>
+        </div>
+    }
+</div>

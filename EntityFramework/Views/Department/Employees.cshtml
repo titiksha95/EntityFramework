@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EntityFramework.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.EmployeeId</td>
+
+                <td>
+                    <a asp-controller="Employee"
+                       asp-action="Details"
+                       asp-route-id="@employee.EmployeeId">
+                        @employee.Name
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<a asp-controller="Department"
+   asp-action="Index">
+    Back to Department List
+</a>
